@@ -37,19 +37,18 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-//        String returnString = "";
-//        int k = 0;
-//        for(int i = 0; i < base.length(); i++){
-//            if(base.charAt(i) == remove.charAt(k)){
-//                i++;
-//                if(k < remove.length()-1) {
-//                    k++;
-//                }
-//                break;
-//            }
-//            returnString += base.charAt(i);
-//        }
-        return null;
+        String returnString = "";
+        int k = 0;
+        for(int i = 0; i < base.length(); i++){
+            if(base.charAt(i) == remove.charAt(k)){
+                if (k != remove.length()-1){
+                    k++;
+                }
+            }else {
+                returnString += base.charAt(i);
+            }
+        }
+        return returnString;
     }
 
     /**
@@ -61,7 +60,22 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        input = input.replace("is", "1");
+        input = input.replace("not", "2");
+        int isCounter = 0;
+        int notCounter = 0;
+        for(int i = 0; i < input.length(); i++){
+            if(input.charAt(i) == '1'){
+                isCounter++;
+            }else if(input.charAt(i) == '2'){
+                notCounter++;
+            }
+        }
+        if(isCounter == notCounter){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     /**

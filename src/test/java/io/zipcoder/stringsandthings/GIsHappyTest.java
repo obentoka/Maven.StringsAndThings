@@ -35,5 +35,4 @@ public class GIsHappyTest {
         Boolean actual = stringsAndThings.gIsHappy("xxggyygxx");
         Assert.assertTrue(actual);
     }
-
 }
