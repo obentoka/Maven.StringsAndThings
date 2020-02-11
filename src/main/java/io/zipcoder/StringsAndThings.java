@@ -15,7 +15,16 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        int yzWordCounter = 0;
+        String[] inputStringArray = input.split(" ");
+        for(String element : inputStringArray){
+            if(element.lastIndexOf('y') == element.length()-1){
+                yzWordCounter++;
+            }else if(element.lastIndexOf('z') == element.length()-1){
+                yzWordCounter++;
+            }
+        }
+        return yzWordCounter;
     }
 
     /**
@@ -28,6 +37,18 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
+//        String returnString = "";
+//        int k = 0;
+//        for(int i = 0; i < base.length(); i++){
+//            if(base.charAt(i) == remove.charAt(k)){
+//                i++;
+//                if(k < remove.length()-1) {
+//                    k++;
+//                }
+//                break;
+//            }
+//            returnString += base.charAt(i);
+//        }
         return null;
     }
 
@@ -51,7 +72,17 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        boolean isHappy = false;
+        for(int i = 0; i < input.length(); i++){
+            if(input.charAt(i) == 'g'){
+                if(input.charAt(i-1) == 'g' || input.charAt(i+1) == 'g'){
+                    isHappy = true;
+                }else {
+                    isHappy = false;
+                }
+            }
+        }
+        return isHappy;
     }
 
 
@@ -63,6 +94,21 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int tripleCounter = 0;
+        int returnTripleAmt = 0;
+        for(int i = 0; i < input.length(); i++){
+            for(int k = i+1; k < input.length(); k++){
+                if(input.charAt(i) == input.charAt(k)){
+                    tripleCounter++;
+                }else {
+                    tripleCounter = 0;
+                }
+
+                if(tripleCounter == 2){
+                    returnTripleAmt++;
+                }
+            }
+        }
+        return returnTripleAmt;
     }
 }
