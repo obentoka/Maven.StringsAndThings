@@ -16,7 +16,7 @@ public class StringsAndThings {
      */
     public Integer countYZ(String input){
         int yzWordCounter = 0;
-        String[] inputStringArray = input.split(" ");
+        String[] inputStringArray = input.toLowerCase().split(" ");
         for(String element : inputStringArray){
             if(element.lastIndexOf('y') == element.length()-1){
                 yzWordCounter++;
@@ -37,18 +37,7 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        String returnString = "";
-        int k = 0;
-        for(int i = 0; i < base.length(); i++){
-            if(base.charAt(i) == remove.charAt(k)){
-                if (k != remove.length()-1){
-                    k++;
-                }
-            }else {
-                returnString += base.charAt(i);
-            }
-        }
-        return returnString;
+        return base.replaceAll(remove, "");
     }
 
     /**
@@ -71,11 +60,7 @@ public class StringsAndThings {
                 notCounter++;
             }
         }
-        if(isCounter == notCounter){
-            return true;
-        }else {
-            return false;
-        }
+        return isCounter ==  notCounter;
     }
 
     /**
